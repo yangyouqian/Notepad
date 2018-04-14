@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#eb344a</color>
+    <color name="colorAccent">#f45c44</color>
+
+    <!--主颜色1-->
+    <color name="colorMain">#eb344a</color>
+    <!--记账按钮的颜色-->
+    <color name="colorAddBtn">#f45c44</color>
+    <!--主颜色2-->
+    <color name="mainBlack">#333333</color>
+    <color name="gary">#666666</color>
+
+    <color name="circleColor">#da464e</color>
+    <color name="gray">#eceaee</color>
+
+    <color name="normalTvColor">#737373</color>
+
+    <color name="item_circle">#666</color>
+</resources>

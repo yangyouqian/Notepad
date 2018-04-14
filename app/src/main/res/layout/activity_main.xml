@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.learn.yhviews.notepad.MainActivity">
+    <Button
+        android:id="@+id/btn_userCenter"
+        android:background="@drawable/mycenter"
+        style="@style/main_top_button" />
+    <Button
+        android:id="@+id/btn_chart"
+        style="@style/main_top_button"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/chart"/>
+
+    <com.learn.yhviews.notepad.view.CircleView
+        android:id="@+id/circle_view"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="38dp"
+        android:layout_centerHorizontal="true"/>
+    <LinearLayout
+        android:layout_marginTop="170dp"
+        android:layout_marginLeft="25dp"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/mainBlack"
+            android:textSize="16sp"
+            android:text="当月收入"/>
+        <TextView
+            android:id="@+id/tv_income"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/mainBlack"
+            android:textSize="20sp"
+            android:text="0.00"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="170dp"
+        android:layout_marginRight="25dp"
+        android:layout_alignParentRight="true"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tv2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/mainBlack"
+            android:layout_gravity="center"
+            android:textSize="16sp"
+            android:text="当月支出"/>
+        <TextView
+            android:id="@+id/tv_expenditure"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/mainBlack"
+            android:textSize="20sp"
+            android:text="1329.00"/>
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/listview"
+        android:listSelector="@android:color/transparent"
+        android:divider="#000"
+        android:dividerHeight="0dp"
+        android:layout_below="@id/circle_view"
+        android:layout_marginTop="-15dp"
+        android:layout_marginBottom="75dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/btn_add_pay"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/add"/>
+
+
+</RelativeLayout>

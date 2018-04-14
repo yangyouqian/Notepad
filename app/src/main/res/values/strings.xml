@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Notepad</string>
+    <string-array name="spinner_data">
+        <item>每天</item>
+        <item>周一</item>
+        <item>周二</item>
+        <item>周三</item>
+        <item>周四</item>
+        <item>周五</item>
+        <item>周六</item>
+        <item>周日</item>
+    </string-array>
+    <string-array name="operate_notify_data">
+        <item>删除</item>
+        <item>修改</item>
+    </string-array>
+</resources>

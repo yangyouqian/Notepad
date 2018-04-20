@@ -51,5 +51,20 @@
         android:textSize="20sp"
         android:textColor="@color/mainBlack"
         android:text="帮助与反馈"/>
+    <TextView
+        android:id="@+id/upload_db"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:textSize="20sp"
+        android:textColor="@color/mainBlack"
+        android:text="备份消费记录"/>
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

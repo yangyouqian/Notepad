@@ -20,6 +20,15 @@ import java.util.List;
 public class MyOpenHelper extends SQLiteOpenHelper {
     //INSERT INTO account(type, money, date, pay, note) VALUES ( 'test', '100','2018-03-11','1','note');
     //添加一个字段是月份
+    /*CREATE TABLE `user`.`account` (
+          `id` INT NOT NULL AUTO_INCREMENT,
+          `type` VARCHAR(20) NULL,
+          `money` DECIMAL(20) NULL,
+          `date` DATETIME NULL,
+          `pay` INT NULL,
+          `month` VARCHAR(15) NULL,
+          `day` VARCHAR(15) NULL,
+          PRIMARY KEY (`id`));*/
     public static final String CREATE_NOTEPAD = "create table if not exists account(" +
             "id integer primary key autoincrement," +
             "type text, money real, date text, pay integer, note text)";

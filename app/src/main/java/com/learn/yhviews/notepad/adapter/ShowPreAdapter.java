@@ -50,11 +50,12 @@ public class ShowPreAdapter extends BaseAdapter {
         TextView tvMoney = view.findViewById(R.id.tv_money);
         if (cost.getPay().equals("0")){
             tvType.setText("收入");
+            tvMoney.setText("+" + cost.getMoney());
         } else {
             tvType.setText("支出");
+            tvMoney.setText("-" + cost.getMoney());
         }
         tvName.setText(cost.getType());
-        tvMoney.setText(cost.getMoney());
         return view;
     }
 }

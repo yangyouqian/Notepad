@@ -1,15 +1,19 @@
 package com.learn.yhviews.notepad.activity;
 
+import android.database.Cursor;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.learn.yhviews.notepad.R;
+import com.learn.yhviews.notepad.adapter.ShowPreAdapter;
 import com.learn.yhviews.notepad.db.MyOpenHelper;
+import com.learn.yhviews.notepad.entity.Cost;
 
 import org.w3c.dom.Text;
 
@@ -41,21 +45,47 @@ public class ChartActivity extends AppCompatActivity {
     String[] months;
     float[] moneys;
 
+    private ListView showPreLv;
+    private List<Cost> costList;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chart);
 
         chart = findViewById(R.id.lineChart);
+        showPreLv = findViewById(R.id.show_pre_lv);
         tvChartMonth = findViewById(R.id.tv_chartMonth);
         dbHelper = new MyOpenHelper(this, "NoteMoney.db", null, 1);
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM");
         String date = sdf.format(new Date());
         tvChartMonth.setText(date);
-
+        costList = new ArrayList<>();
+        setListView(date);
         setChart();
         ValueTouchListener listener = new ValueTouchListener();
         chart.setOnValueTouchListener(listener);
+    }
+
+    private void setListView(String month) {
+        costList.clear();
+        showPreLv.setAdapter(null);
+        Cursor cursor = dbHelper.select();
+        //获得当月的消费记录
+        while (cursor.moveToNext()){
+            String m = cursor.getString(cursor.getColumnIndex("date"));
+            if (m.contains(month)){
+                Cost cost = new Cost();
+                cost.setType(cursor.getString(cursor.getColumnIndex("type")));
+                cost.setMoney(cursor.getString(cursor.getColumnIndex("money")));
+                cost.setPay(cursor.getString(cursor.getColumnIndex("pay")));
+                costList.add(cost);
+            }
+        }
+        cursor.close();
+        ShowPreAdapter adapter = new ShowPreAdapter(costList, this);
+        showPreLv.setAdapter(adapter);
     }
 
     private void setChart(){
@@ -106,6 +136,8 @@ public class ChartActivity extends AppCompatActivity {
         public void onValueSelected(int lineIndex, int pointIndex, PointValue value) {
             //切换文字
             tvChartMonth.setText(months[pointIndex]);
+            Log.d("yhviews", months[pointIndex]);
+            setListView(months[pointIndex]);
         }
 
         @Override

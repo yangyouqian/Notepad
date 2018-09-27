@@ -34,7 +34,7 @@ public class UserCenterActivity extends AppCompatActivity implements View.OnClic
 
     private static final String TAG = "okhttp";
     //本机IP
-    private static final String BASE_URL = "http://192.168.31.185:8080/up/";
+    private static final String BASE_URL = "http://192.168.1.20:8080/up/";
 
     private TextView budgeSetting;
     private TextView notificationSetting;
